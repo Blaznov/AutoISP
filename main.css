@@ -1,0 +1,94 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-image: url("images/first-background.jpg");
+  	background-attachment: fixed;
+  	background-position: center top;
+  	background-repeat:  no-repeat;
+}
+
+.stepper .step:before{
+    counter-increment: li;
+	content: counter(li);
+    position: absolute;
+    left: -30px;
+    top: 15px;
+    margin-top: -50px;
+    background: lightblue;
+    border-radius: 50px;
+    height: 100px;
+    width: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.stepper{ 
+	counter-reset: li;
+    list-style: none; 
+    text-align: justify;
+    margin: 0 auto;
+}
+
+.stepper .step{
+	position: relative;
+    display: block;
+    padding: 10px 25px 10px 100px;
+    margin: 100px 0 100px 50px;
+    background: #ddd;
+    color: #444;
+    text-decoration: none;
+	cursor: pointer;
+}
+
+
+.header3{
+	margin: 0;
+}
+
+.fullscreen{
+	width: 85vw;
+	height: 80vh;
+	max-width: 1920px;
+	margin: 0 auto;
+	padding: 0
+}
+
+.white{
+	color: white;
+}
+
+.container{
+    margin: 0 auto;
+    text-align: center;
+}
+
+.inline{
+	display: inline-block;
+}
+
+.rounded{
+	border-radius: 1000px;
+}
+
+.person-photo{
+	width: 250px;
+	height: 250px;
+}
+.person-card{
+	color: white;
+	max-width: 300px;
+	padding: 20px;
+	border-radius: 25px;
+	background-color: rgba(128,128,128,0.45);
+	margin: 15px;
+	vertical-align: top;
+}
+
+.person-description{
+	text-align: justify;
+}
