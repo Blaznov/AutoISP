@@ -1,13 +1,271 @@
 *{
 	margin: 0;
 	padding: 0;
+	font-family: "Courier New", monospace, serif;
 }
 
+a{
+	text-decoration: none;
+}
+
+.container{
+	margin: 0 auto;
+	width: 100%	;
+	max-width: 1920px;
+}
+
+.align-right{
+	text-align: right;
+}
+
+.inline{
+	display: inline-block;
+}
+
+.nav-item{
+	padding: 15px 18px;
+	border-radius: 50px;
+	border: 2px solid;
+	color: white;
+	margin: 10px 10px;
+	background-color:#4496C2;
+}
+
+.nav-item:last-child{
+	margin: 10px 10px 10px 0;
+}
+
+.nav-item:hover{
+	cursor: pointer;
+	box-shadow: 5px 5px 125px grey;
+}
+
+@keyframes resize-block { 
+    from {
+      height: 34vh;              
+    }
+    to {
+      height: 35vh;
+    }
+  }
+
+
+  .move-block {
+    /* применить анимацию go-left-right */
+    /* продолжительность 3s */
+    /* количество раз: бесконечное (infinite) */
+    /* менять направление анимации каждый раз (alternate) */
+    animation: resize-block 0.5s infinite alternate;
+
+    position: relative;
+  }
+
+}
+
+.nav{
+	padding: 5px;
+}
+
+.header{
+	position: fixed;
+	width: 100%;
+	max-width: 1920px;
+	z-index: 9999;
+}
+
+
+
 body{
-	background-image: url("images/first-background.jpg");
+	background: url("images/intro-block.jpg");
+  	background-repeat: no-repeat; 
+  	background-size: cover;	
   	background-attachment: fixed;
   	background-position: center top;
-  	background-repeat:  no-repeat;
+}
+
+body::before{
+  	content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    max-width: 1920px;
+}
+
+
+.adventages, .get-script{
+	color: black;
+}
+
+.adventages::before, .get-script::before{
+	content: '';
+    position: absolute;
+    width: calc(100% - 50px);
+    height: calc(100% - 100px);
+    background: rgba(255,255,255,0.5);
+    max-width: 1920px;
+	padding: 50px 25px;
+    z-index: -15
+}
+
+.adventages-list{
+	width: calc(50% - 200px);
+	height: calc(100vh - 200px);
+	font-size: 25px;
+	padding: 100px;
+}
+
+.adventages-list p{
+	margin: 25px;
+}
+
+.adventages-img{
+	background-image: url("images/Ok-300x300.png.pagespeed.ce.cCU1NF7wd4.png");
+  	background-size: 35vw 35vw;	
+  	background-position: center;
+  	background-repeat: no-repeat;
+  	width: 49%;
+  	height: 80vh;
+  	vertical-align: top;
+}
+
+.get-info{
+	width: calc(50%-50px);
+	height: 85vh;
+	padding: 25px;
+	vertical-align: top;
+}
+
+.get-button-main{
+	width: 49%;
+	height: 85vh;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.button-main{
+	padding: 15px;
+	font-size: 45px;
+	border-radius: 50px;
+	border: 2px solid;
+	background-color: #4496C2;
+	color: white;
+}
+.button-main:hover{
+	cursor: pointer;
+	box-shadow: 5px 5px 125px grey;
+}
+
+.al-center{
+	margin: 0 auto;
+}
+
+.white-text{
+	color: white;
+}
+
+.product-block{
+	position: relative;
+	width: 700px;
+	text-align: center;
+}
+
+h1.product-block{
+	font-size: 50px;
+}
+
+.empty-block-5{
+	height: 5vh;
+}
+
+.empty-block-35{
+	height: 35vh;
+}
+
+
+.next{
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	background-image: url("images/down-white.png");
+	background-size: cover;
+}
+
+.how-its-works{
+	background-color: white;
+}
+
+.fullscreen{
+	width: 100%;
+	max-width: 1920px;
+	height: 100vh;
+}
+
+.center-block{
+	text-align: center;
+}
+
+.step-header{
+	border-bottom: 1px solid black;
+}
+
+.black-text{
+	color: black;
+}
+
+.step-header{
+	padding: 5px;	
+	font-size: 25px;
+}
+
+.auto-set{
+	background-color: grey;
+}
+
+.autoset-img{
+	height: 100%;
+	width: 50%;
+	background-image: url("https://st2.depositphotos.com/2001755/5408/i/450/depositphotos_54081723-stock-photo-beautiful-nature-landscape.jpg");
+	background-size: cover;
+}
+
+.autoset-form{
+	margin: 20vh 0 0 0;
+	vertical-align: top;
+	width: 49%;
+	height: 100%;
+	text-align: center;
+}
+
+.input-form{
+	background-color: lightgrey;
+	border: 1px solid darkgrey;
+	border-radius: 25px;
+	width: 350px;
+	margin-top: 5px;
+	padding: 15px;
+	font-size: 25px;
+}
+
+.button-form{
+	background-color: lightgrey;
+	border: 1px solid red;
+	border-radius: 25px;
+	width: 250px;
+	margin-top: 5px;
+	padding: 15px;
+	font-size: 25px;
+	color: red;
+	cursor: pointer;
+}
+
+.button-form:hover{
+	background-color: red;
+	color: lightgrey;
+}
+
+.step-new-content{
+	display: none;
 }
 
 .stepper .step:before{
@@ -45,30 +303,8 @@ body{
 	cursor: pointer;
 }
 
-
 .header3{
 	margin: 0;
-}
-
-.fullscreen{
-	width: 85vw;
-	height: 80vh;
-	max-width: 1920px;
-	margin: 0 auto;
-	padding: 0
-}
-
-.white{
-	color: white;
-}
-
-.container{
-    margin: 0 auto;
-    text-align: center;
-}
-
-.inline{
-	display: inline-block;
 }
 
 .rounded{
@@ -80,7 +316,7 @@ body{
 	height: 250px;
 }
 .person-card{
-	color: white;
+	text-align: center;
 	max-width: 300px;
 	padding: 20px;
 	border-radius: 25px;
@@ -91,4 +327,9 @@ body{
 
 .person-description{
 	text-align: justify;
+}
+
+.our-team{
+	text-align: center;
+	background-color: white;
 }

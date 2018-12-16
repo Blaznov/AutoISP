@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Автоматизированая настройка серверов NGINX</title>
+	<title>AutoISP</title>
 	<link rel="stylesheet" type="text/css" href="main.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 <body>
 	<div class="container">
-	<div class="fullscreen">
-		<h3 class="white">Our team</h3>
+		<div class="header">
+			<div class="nav align-right">
+				<a class="inline nav-item down" href="#download"><i class="fas fa-download"></i></a>
+				<a class="inline nav-item set" href="#autoset"><i class="fas fa-cog"></i></a>
+			</div>
+		</div>
+		<div class="intro-block fullscreen">
+			<div class="empty-block-35"></div>
+			<h1 class="product-block al-center white-text">AutoISP</h1>
+			<div class="empty-block-5"></div>
+			<h2 class="product-block al-center white-text">Автоматизированая настройка серверов Nginx</h2>
+			<div class="move-block"></div>
+			<a href="#how-its-works">
+			<div class="next product-block al-center"></div>
+		</a>
+		</div>
+		<div id="how-its-works" class="how-its-works fullscreen">
+			<div class="empty-block-5"></div>
+			<h2 class="product-block al-center black-text">Как работает скрипт</h2>
 		<ol class="stepper">
 			<li class="step first-step">
 				<h3 class="header3">download</h3>
@@ -47,9 +65,47 @@
 			</li>
 		</ol>
 	</div>
-	<div class="fullscreen">
-			<h3 class="white">Our team</h3>
-			<div class="person-card inline">
+		<div class="adventages fullscreen">
+			<div class="empty-block-5"></div>
+			<h2 class="product-block al-center black-text">Преимущества продукта</h2>
+			<div class="empty-block-5"></div>
+			<div class="inline adventages-list">
+				<p><i class="fas fa-check-circle"></i>good</p>
+				<p><i class="fas fa-check-circle"></i>good</p>
+				<p><i class="fas fa-check-circle"></i>good</p>
+			</div>	
+			<div class="inline adventages-img"></div>			
+		</div>
+		<div id="autoset" class="auto-set fullscreen">
+			<div class="autoset-img inline">
+			</div>
+			<form class="autoset-form inline">
+				<h3 class="white-text">Автоматизированая настройка</h3>
+				<div class="empty-block-5"></div>
+				<p><input class="input-form" type="" name="" placeholder="IP"></p>
+				<p><input class="input-form" type="" name="" placeholder="Что-то еще"></p>
+				<p><input class="input-form" type="" name="" placeholder="Пароль"></p>
+				<p><input class="input-form" type="" name="" placeholder="Лицензия"></p>
+				<button class="button-form">Настроить</button>
+			</form>
+		</div>
+		<div id="download" class="get-script fullscreen">
+			<div class="empty-block-5"></div>
+			<h2 class="product-block al-center black-text">Скачать скрипт</h2>
+			<div class="empty-block-5"></div>
+			<div class="inline get-info">
+				 Тут инструкция по настройке скрипта в случае скачивания
+			</div>
+			<div class="inline get-button-main">
+			<div class="empty-block-35"></div>
+				<button class="button-main"><i class="fas fa-download"></i>Скачать</button>
+			</div>
+		</div>
+		<div class="our-team fullscreen">
+			<div class="empty-block-5"></div>
+			<h2 class="product-block al-center black-text">Наша команда</h2>
+			<div class="empty-block-5"></div>
+			<div class="al-center person-card inline">
 				<img class="person-photo rounded" src="images/Nastya.jpg">
 				<p class="person-name">Nastya Moroz</p>
 				<p class="person-description">
@@ -66,8 +122,12 @@
 					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 				</p>
 			</div>
-		</div>
+		</div>			
+		</div>	
 	</div>
+
+
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script type="text/javascript" src="main.js"></script>
 </body>
