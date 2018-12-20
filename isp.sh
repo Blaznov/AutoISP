@@ -55,7 +55,42 @@ while [ "$1" != "" ]; do
     shift
 done
 
+if [ "$hostname" == "" ] || [ "$pass" == "" ] || [ "$ip" == "" ]; then
+	echo "ERROR";
+	usage
+	exit 1
+fi
+
 if ! [ -f "$HOME/.ssh/id_rsa" ]; then
 	echo "Generating ssh keys. Press enter everywhere";
 	ssh-keygen -t rsa
+fi
+
+if ! (cat ~/.ssh/config | grep -q "Host $hostname"); then
+	echo "Host $hostname
+	HostName $ip
+	Port 22
+	User root
+	Compression yes
+	" >> ~/.ssh/config
+	#echo sshpass -p "$pass" ssh-copy-id -i ~/.ssh/id_rsa $hostname
+fi
+
+sshpass -p "$pass" ssh-copy-id -i ~/.ssh/id_rsa $hostname
+
+if ! (ssh -o PreferredAuthentications=publickey $hostname echo ok); then
+echo 'ssh key installation failed';
+exit 1
+fi
+
+if [ "$install" == "1" ]; then
+	
+	echo "#!/bin/bash
+	export ACTIVATION_KEY=$ikey
+	cd
+	wget http://cdn.ispsystem.com/install.sh
+	(echo s; echo 2) | sh install.sh ISPmanager" | ssh $hostname "cat > /root/ispinst"
+	
+	ssh $hostname bash /root/ispinst
+
 fi
