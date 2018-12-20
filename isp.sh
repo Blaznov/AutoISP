@@ -94,3 +94,47 @@ if [ "$install" == "1" ]; then
 	ssh $hostname bash /root/ispinst
 
 fi
+echo '
+#!/bin/bash
+apt update 
+apt upgrade -y
+
+apt install -y apt-transport-https lsb-release ca-certificates isp-php72 isp-php72-fpm screen vim
+wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/php.list
+
+apt update 
+apt upgrade -y
+
+echo -n "updating isp... "
+/usr/local/mgr5/sbin/pkgupgrade.sh coremanager
+
+echo -n "installing letsencrypt..."
+/usr/local/mgr5/sbin/mgrctl -m ispmgr plugin clicked_button=install name=ispmanager-plugin-letsencrypt sok=ok
+
+echo -n "installing ftp... "
+/usr/local/mgr5/sbin/mgrctl -m ispmgr feature.edit clicked_button=ok elid=ftp  packagegroup_ftp=proftp  sok=ok
+
+echo -n "installing php... "
+/usr/local/mgr5/sbin/mgrctl -m ispmgr feature.edit clicked_button=ok elid=altphp72  packagegroup_altphp72gr=ispphp72 package_ispphp72_fpm=on sok=ok
+
+/usr/local/mgr5/sbin/mgrctl -m ispmgr feature.edit clicked_button=ok elid=ispphp72  packagegroup_altphp72gr=ispphp72 package_ispphp72_fpm=on sok=ok > /dev/null 2>&1
+
+sleep 15
+
+echo -n "enabling php... "
+/usr/local/mgr5/sbin/mgrctl -m ispmgr services.enable clicked_button=ok elid=php-fpm72 sok=ok
+
+echo -n "installing nginx... "
+/usr/local/mgr5/sbin/mgrctl -m ispmgr feature.edit clicked_button=ok elid=web package_nginx=on package_php=off package_php-fpm=on packagegroup_apache=turn_off  sok=ok
+
+sleep 15
+
+' | ssh $hostname "cat > /root/ispscript"
+
+ssh $hostname bash /root/ispscript
+
+IP=$(ssh $hostname wget -qO- ipinfo.io/ip)
+scp tracker root@${IP}:/etc/nginx
+echo "https://${IP}:1500/ispmgr?func=auth&authinfo=root:${pass}"
+echo "ALL DONE"
